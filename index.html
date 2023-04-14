@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="filler"></div>
+      <h1>Library</h1>
+      <div class="add-books">
+        <h2>Add Books Here</h2>
+        <button onclick="openForm()">
+          <img
+            src="images/book-plus-outline.svg"
+            alt="button that adds a book to the library"
+          />
+        </button>
+      </div>
+    </header>
+    <main>
+      <div class="popup-form" id="myForm">
+        <form action="" id="form-container">
+          <img
+            src="images/window-close.svg"
+            alt="exit form"
+            class="exit-btn"
+            onclick="closeForm()"
+          />
+
+          <h1 class="form-title">Enter book information</h1>
+
+          <div class="form-section">
+            <label for="title">Title</label>
+            <input type="text" name="title" required id="bookTitle" />
+          </div>
+
+          <div class="form-section">
+            <label for="author">Author</label>
+            <input type="text" name="author" required id="bookAuthor" />
+          </div>
+
+          <div class="form-section">
+            <label for="pages"># of Pages</label>
+            <input type="number" name="pages" required id="bookPages" />
+          </div>
+
+          <div class="btn-section">
+            <div class="radio-button">
+              <input
+                type="radio"
+                name="bookRead"
+                id="read"
+                required
+                class="bookRead"
+                value="Read"
+              />
+              <label for="read">Read</label>
+            </div>
+            <div class="radio-button">
+              <input
+                type="radio"
+                name="bookRead"
+                id="notRead"
+                required
+                value="Not read"
+                class="bookRead"
+              />
+              <label for="notRead">Not read</label>
+            </div>
+          </div>
+
+          <div class="error-section">
+            <h3 id="form-error"></h3>
+          </div>
+          <div class="submit-section">
+            <button
+              type="submit"
+              class="submit-btn"
+              id="formSubmit"
+              onclick="addBookToLibrary()"
+            >
+              Add book
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="library-container">
+        <!-- <div class="book">
+          <div class="title book-text">
+            <h1>Title</h1>
+          </div>
+          <div class="author book-text">
+            <h2>Author</h2>
+          </div>
+          <div class="pages book-text">
+            <h3>Pages</h3>
+          </div>
+          <div class="is-read book-text">
+            <h3>Have you read the book?</h3>
+            <div class="button r button-3">
+              <input type="checkbox" class="checkbox" />
+              <div class="knobs"></div>
+              <div class="layer"></div>
+            </div>
+          </div>
+          <button class="remove-book" onclick="removeBook()">
+            Remove Book
+          </button>
+        </div> -->
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
