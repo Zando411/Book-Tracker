@@ -44,7 +44,9 @@ function updateLibrary() {
   <div class="is-read book-text">
     <h3>Have you read the book?</h3>
     <div class="button r button-3">
-      <input type="checkbox" class="checkbox" ${book.read ? '' : 'checked'}>
+      <input type="checkbox" onclick="changeReadStatus(event)" class="checkbox" ${
+        book.read ? '' : 'checked'
+      }>
       <div class="knobs"></div>
       <div class="layer"></div>
     </div>
@@ -61,10 +63,14 @@ function updateLibrary() {
 function removeBook(event) {
   const div = event.target.parentNode;
   const bookIndex = div.dataset.index;
-  console.log(bookIndex);
   myLibrary.splice(bookIndex, 1);
-  console.log(myLibrary);
   updateLibrary();
+}
+
+function changeReadStatus(event) {
+  const bookIndex = event.target.closest('.book').dataset.index;
+  myLibrary[bookIndex].read = !myLibrary[bookIndex].read;
+  console.log(myLibrary[bookIndex]);
 }
 
 function Book(title, author, pages, read) {
